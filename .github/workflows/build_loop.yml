@@ -284,7 +284,8 @@ jobs:
           # and make sure to specify the submodule by setting "--directory=(submodule_name)".
           # Several patches may be added per submodule.
           # Adding comments (#) may be useful to easily tell the individual patches apart.
-           # The lines below add the customizations listed using the CustomizationSelect script
+          
+          # The lines below add the customizations listed using the CustomizationSelect script
           # The "\" is a continuation character 
           #   the line following a "\" should not be blank
           /bin/bash -c "$(curl -fsSL \
@@ -303,9 +304,7 @@ jobs:
 
           # the final customization listed above CANNOT have a continuation character
           # more customizations can be pasted after this line
-          
           export SCRIPT_BRANCH=prelim_ai_food && export PATCH_BRANCH=prelim_ai_food && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/loopandlearn/lnl-scripts/$SCRIPT_BRANCH/CustomizationSelect.sh)" food_search
-          
           echo "Downloading code to support 15 Minute Remote Passwords"
           cd Loop
           git remote add gestrich https://github.com/gestrich/Loop 
@@ -324,7 +323,6 @@ jobs:
           cd ..
           git add .; 
           git commit -m "Added 15 minute remote password patches"
-
 
       # Patch Fastlane Match to not print tables
       - name: Patch Match Tables
